@@ -2,7 +2,7 @@
   "name": "learn-drizzle",
   "scripts": {
     "db:gen": "drizzle-kit generate:pg --out database/migrations --schema app/models",
-    "db:migrate": "tsx database/migrate.ts"
+    "db:sync": "tsx database/sync.ts"
   },
   "dependencies": {
     "dotenv": "16.0.3",

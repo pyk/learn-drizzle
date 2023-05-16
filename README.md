@@ -12,5 +12,6 @@ This is my personal notes on
 -   You can create empty migration files.
 -   You can do anythin inside the generated SQL file such as, define additional
     indexes or install PostgreSQL extension.
+-   You can sync the database schema to the live database via `pnpm db:sync`.
 -   If the type is not available on drizzle, you can create custom type. See
     [tsvector](./app/models/types/tsvector.ts).
