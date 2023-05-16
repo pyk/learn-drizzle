@@ -1,0 +1,179 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "id": "5034d67d-7fed-4a01-ac4f-58948df00595",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "tables": {
+    "chains_dexs": {
+      "name": "chains_dexs",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "chain_id": {
+          "name": "chain_id",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dex_id": {
+          "name": "dex_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pools_count": {
+          "name": "pools_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tokens_count": {
+          "name": "tokens_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "chains_dexs_chain_id_chains_id_fk": {
+          "name": "chains_dexs_chain_id_chains_id_fk",
+          "tableFrom": "chains_dexs",
+          "tableTo": "chains",
+          "columnsFrom": [
+            "chain_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "chains_dexs_dex_id_dexs_id_fk": {
+          "name": "chains_dexs_dex_id_dexs_id_fk",
+          "tableFrom": "chains_dexs",
+          "tableTo": "dexs",
+          "columnsFrom": [
+            "dex_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {}
+    },
+    "chains": {
+      "name": "chains",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "integer",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "dexs_count": {
+          "name": "dexs_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pools_count": {
+          "name": "pools_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tokens_count": {
+          "name": "tokens_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fts": {
+          "name": "fts",
+          "type": "tsvector generated always as (to_tsvector('english', name)) stored",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "chains_fts": {
+          "name": "chains_fts",
+          "columns": [
+            "fts"
+          ],
+          "isUnique": false
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {}
+    },
+    "dexs": {
+      "name": "dexs",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "chains_count": {
+          "name": "chains_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "pools_count": {
+          "name": "pools_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "tokens_count": {
+          "name": "tokens_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fts": {
+          "name": "fts",
+          "type": "tsvector generated always as (to_tsvector('english', name)) stored",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "schemas": {},
+    "tables": {},
+    "columns": {}
+  }
+}
