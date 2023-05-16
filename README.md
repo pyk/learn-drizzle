@@ -12,3 +12,5 @@ This is my personal notes on
 -   You can create empty migration files.
 -   You can do anythin inside the generated SQL file such as, define additional
     indexes or install PostgreSQL extension.
+-   If the type is not available on drizzle, you can create custom type. See
+    [tsvector](./app/models/types/tsvector.ts).
